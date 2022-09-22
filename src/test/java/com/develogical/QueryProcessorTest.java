@@ -40,6 +40,11 @@ public class QueryProcessorTest {
         assertThat(queryProcessor.process("what is 11 plus 15"), containsString("26"));
     }
 
+    @Test
+    public void checkSquare() throws Exception {
+        assertThat(queryProcessor.process("which of the following numbers is both a square and a cube: 531441, 155, 50, 117649"), containsString("531441"));
+    }
+
     
 
 }

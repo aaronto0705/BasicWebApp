@@ -21,10 +21,28 @@ public class QueryProcessor {
             }
             return String.valueOf(max);
         }
+
+
         if (query.toLowerCase().contains("plus")) {
             String[] parts = query.split(" ");
             int val = Integer.parseInt(parts[2].trim()) + Integer.parseInt((parts[4].trim()));
             return String.valueOf(val);
+        }
+
+
+        if (query.toLowerCase().contains("a square and a cube")) {
+            String[] parts = query.split(":");
+            String[] numbers = parts[1].split(",");
+            for (int i = 0; i < numbers.length; i++) {
+                double sqRoot = Math.sqrt(Integer.parseInt(numbers[i].trim()));
+                double cbRoot = Math.cbrt(Integer.parseInt(numbers[i].trim()));
+                if (Math.round(sqRoot) * Math.round(sqRoot) == Integer.parseInt(numbers[i].trim())) {
+                    if (Math.round(cbRoot) * Math.round(cbRoot) * Math.round(cbRoot) == Integer.parseInt(numbers[i].trim())) {
+                        return numbers[i].trim();
+                    }
+                }
+
+            }
         }
         return "";
     }
