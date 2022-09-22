@@ -9,4 +9,11 @@ public class QueryProcessor {
         }
         return "";
     }
+
+    public String checkName(String query) {
+        if (query.toLowerCase().contains("name")) {
+            return "Arn";
+        }
+        return "";
+    }
 }

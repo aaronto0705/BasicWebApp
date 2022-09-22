@@ -25,4 +25,9 @@ public class QueryProcessorTest {
         assertThat(queryProcessor.process("pokemon"), containsString("Nintendo"));
     }
 
+    @Test
+    public void checkingForName() throws Exception {
+        assertThat(queryProcessor.checkName("name"), containsString("Arn"));
+    }
+
 }
